@@ -1,0 +1,10 @@
+import app from './app'
+// import { startDatabase } from './database'
+
+const PORT: number = 3000
+
+app.listen(PORT, async () => {
+    // await startDatabase()
+
+    console.log(`App running on port ${PORT}`)
+})
