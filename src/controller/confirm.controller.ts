@@ -1,8 +1,18 @@
 import { Response, Request } from "express";
+import measureShema from "../schema/measure.shema";
 
-const confirm = (req: Request, res: Response) => {
-    res.send("OK")
+
+class ConfirmController {
+
+    confirm = (req: Request, res: Response) => {
+
+        const verifyPayload = measureShema.meansureConfirmSchema.parse(req.body)
+
+
+        
+
+        res.send({success: true})
+    }
+
 }
-
-
-export default { confirm }
+export default new ConfirmController()

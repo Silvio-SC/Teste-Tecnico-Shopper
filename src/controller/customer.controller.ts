@@ -1,9 +1,12 @@
 import { Response, Request } from "express";
 
-const findCustomerMeasures = (req: Request, res: Response) => {
 
-    res.send(" OK")
+class CustomerController {
+    
+    findCustomerMeasures = (req: Request, res: Response) => {
+        res.send(" OK")
+    }
+    
 }
 
-
-export default { findCustomerMeasures }
+export default new CustomerController()

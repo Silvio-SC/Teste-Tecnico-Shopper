@@ -1,8 +1,15 @@
 import { Response, Request } from "express";
+import UploadSchema from "../schema/upload.shema";
 
-const upload = (req: Request, res: Response) => {
-    res.send("OK")
+
+class UploadController {
+    
+    upload = (req: Request, res: Response) => {
+        const verifyPayload = UploadSchema.uploadSchema.parse(req.body)
+
+        res.send(verifyPayload)
+    }
 }
+    
 
-
-export default { upload }
+export default new UploadController()
