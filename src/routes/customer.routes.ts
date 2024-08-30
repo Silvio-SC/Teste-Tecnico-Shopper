@@ -3,9 +3,8 @@ import customerController from '../controller/customer.controller'
 
 const customerRouter: Router = Router()
 
-customerRouter.get("/:customerCode/list", (req, res) => {
-
-    customerController.findCustomerMeasures(req, res)
+customerRouter.get("/:customerCode/list", async (req, res, next) => {
+    customerController.findCustomerMeasures(req, res, next)
 })
 
 export default customerRouter;

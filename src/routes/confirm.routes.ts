@@ -3,8 +3,8 @@ import confirmController from '../controller/confirm.controller'
 
 const confirmRouter: Router = Router()
 
-confirmRouter.patch("", (req, res) => {
-    confirmController.confirm(req, res);
+confirmRouter.patch("", (req, res, next) => {
+    confirmController.confirm(req, res, next);
 })
 
 export default confirmRouter;
