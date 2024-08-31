@@ -2,6 +2,7 @@ import "dotenv/config";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import PrismaService from "./prisma.service";
 import { IUploadReq } from "../interface/upload.interface";
+import { ICostumerMeansure } from "../interface/meansure.interface";
 
 class UploadService {
 
@@ -11,8 +12,8 @@ class UploadService {
             { where: { customer_code: verifyPayload.customer_code } }
         ) 
         
-        const meansureOfSameMonth = costumerMeansures.map((x) => x.dateTime.toISOString().split('-')[1]
-            ).find((x) => x! === verifyPayload.measure_datetime.split('-')[1])
+        const meansureOfSameMonth = costumerMeansures.map((x: ICostumerMeansure) => x.dateTime.toISOString().split('-')[1]
+            ).find((x: string) => x! === verifyPayload.measure_datetime.split('-')[1])
 
 
         if (!meansureOfSameMonth) {
